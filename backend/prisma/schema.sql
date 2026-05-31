@@ -1,0 +1,21 @@
+-- SQL Schema for MySQL
+-- Database: user_management
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` INT AUTO_INCREMENT,
+  `fullName` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `phoneNumber` VARCHAR(20) DEFAULT NULL,
+  `dateOfBirth` DATETIME(3) DEFAULT NULL,
+  `gender` VARCHAR(30) DEFAULT NULL,
+  `address` VARCHAR(500) DEFAULT NULL,
+  `occupation` VARCHAR(100) DEFAULT NULL,
+  `skills` JSON NOT NULL,
+  `profileImage` VARCHAR(2083) DEFAULT NULL,
+  `notes` TEXT DEFAULT NULL,
+  `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updatedAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3),
+  
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_key` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
